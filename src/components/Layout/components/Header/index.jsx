@@ -27,6 +27,24 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
         title: 'English',
+        // Menu Cap 2: children
+        children: {
+            // title
+            title: 'Language',
+            // data trong Menu cap 2
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,
@@ -43,10 +61,13 @@ function Header() {
     // Call API get data
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3]);
+            setSearchResult([]);
         }, 0);
     }, []);
     // Trả về 1 JSX
+    const handleMenuChange = (item) => {
+        return console.log(item);
+    };
     return (
         // 1 thẻ chứa toàn bộ components
         <header className={cx('wrapper')}>
@@ -102,7 +123,7 @@ function Header() {
                 <div className={cx('action')}>
                     <Button text>Upload</Button>
                     <Button primary>Login</Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onchange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
                         </button>

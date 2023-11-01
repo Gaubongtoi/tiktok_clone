@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import './App.css';
+
 // Cấu hình router bằng BrowserRouter trong lib react-router-dom
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { publicRoutes } from './routes';

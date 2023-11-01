@@ -17,8 +17,32 @@
     border-radius: 0;
     font-weight: 700;
     padding: 11px 16px;
+    line-height: 1.8rem;
     &:hover {
         background: rgba(22, 24, 35, 0.03);
         cursor: pointer;
     }
+}
+
+// Menu Cap 2
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+}
+
+.back-btn {
+    // position: absolute;
+    background-color: transparent;
+    height: 100%;
+    width: 50px;
+    cursor: pointer;
+}
+
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // height: 100%;
 }
