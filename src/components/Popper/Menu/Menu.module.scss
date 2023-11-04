@@ -18,9 +18,13 @@
     font-weight: 700;
     padding: 11px 16px;
     line-height: 1.8rem;
+    font-weight: 600;
     &:hover {
-        background: rgba(22, 24, 35, 0.03);
+        background-color: rgba(22, 24, 35, 0.03);
         cursor: pointer;
+    }
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
     }
 }
 

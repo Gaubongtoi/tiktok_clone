@@ -47,6 +47,7 @@ function Menu({ children, items = [], onchange = defaultFn }) {
             // Cho phep duoc active thanh phan trong Tippy
             interactive={true}
             //
+            offset={[12, 8]}
             appendTo={() => document.body}
             // Xuất hiện (visible) với 1 điều kiện nào đó
             // visible={searchResult.length > 0}
@@ -74,6 +75,10 @@ function Menu({ children, items = [], onchange = defaultFn }) {
                     </PopperWrapper>
                 </div>
             )}
+            // Khi blur ra ngoài thanh menu trong 1 khoảng delay nhất định, nó sẽ set lại cho History ở mức 1
+            onHide={() => {
+                setHistory((prev) => prev.slice(0, 1));
+            }}
         >
             {children}
         </Tippy>
