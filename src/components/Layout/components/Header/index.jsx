@@ -1,35 +1,23 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
-
-import { useState, useEffect } from 'react';
-
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import images from '~/assets/images';
 import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
-    faPlus,
-    faSignIn,
     faEllipsisVertical,
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faUpload,
-    faMessage,
-    faCloudUpload,
     faUser,
     faCoins,
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
+
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
+import Search from '../Search';
 import 'tippy.js/dist/tippy.css';
 import { UploadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
 // Để có thể đặt tên từ name-name, thay vì nameName
@@ -96,13 +84,6 @@ const userMenu = [
     },
 ];
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
-    // Call API get data
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([]);
-        }, 0);
-    }, []);
     // Trả về 1 JSX
     const handleMenuChange = (item) => {
         return console.log(item);
@@ -123,40 +104,8 @@ function Header() {
                     => dễ dàng tùy chỉnh với các attribute trong thẻ
                     Tippy
                 */}
-                <HeadlessTippy
-                    // Cho phep duoc active thanh phan trong Tippy
-                    interactive={true}
-                    //
-                    appendTo={() => document.body}
-                    // Xuất hiện (visible) với 1 điều kiện nào đó
-                    visible={searchResult.length > 0}
-                    // attr render
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    {/* + Search */}
-                    <div className={cx('search')}>
-                        <input placeholder="Search account and videos" spellCheck={false} />
-                        <button className={cx('clear')}>
-                            {/* Cài đặt thư viện font awesome 
-                            Với mỗi icon sẽ bao gồm chuẩn fa+tên icon
-                        */}
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </HeadlessTippy>
+                {/* Search */}
+                <Search />
                 {/* Action */}
                 <div className={cx('action')}>
                     {/* Neu nguoi dung dang nhap thanh cong */}
@@ -175,6 +124,7 @@ function Header() {
                             <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon className={cx('inbox-icon')} />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>

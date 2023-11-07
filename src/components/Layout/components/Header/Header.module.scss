@@ -23,93 +23,6 @@
 .logo {
 }
 
-.search-result {
-    padding-top: 8px;
-}
-
-.search-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    color: rgba(22, 24, 35, 0.5);
-}
-
-.search-result,
-.search {
-    width: 361px;
-}
-
-.search {
-    height: var(--search-height);
-    background-color: rgba(22, 24, 35, 0.06);
-    border-radius: var(--search-border-radius);
-    padding-left: 16px;
-    display: flex;
-    position: relative;
-    border: 1.5px solid transparent;
-    input {
-        flex: 1;
-        font-size: 1.6rem;
-        height: 100%;
-        color: var(--black);
-        border: none;
-        background-color: transparent;
-        outline: #828282;
-        caret-color: var(--primary);
-    }
-
-    input:not(:placeholder-shown) ~ .search-btn {
-        color: rgba(22, 24, 35, 0.75);
-        background-color: rgba(22, 24, 35, 0.03);
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: var(--search-top-spacer);
-        right: var(--search-button-width);
-        width: 1px;
-        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-        background-color: rgba(22, 24, 35, 0.12);
-    }
-    &:focus-within {
-        border-color: rgba(22, 24, 35, 0.2);
-    }
-}
-
-.clear,
-.loading {
-    position: absolute;
-    right: var(--search-button-width);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
-    padding-right: 12px;
-}
-
-.search-btn {
-    width: var(--search-button-width);
-    height: 100%;
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
-    font-size: 1.7rem;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    color: rgba(22, 24, 35, 0.34);
-    &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
-        cursor: pointer;
-    }
-    &:active {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
-}
-
-.custom-login {
-    color: red;
-}
-
 // Actions
 
 .action {
@@ -123,6 +36,22 @@
     font-size: 2.2rem;
     padding: 4px 12px;
     cursor: pointer;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -3px;
+    right: 0px;
+    padding: 0px 6px;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    font-family: 'ProximaNova', sans-serif;
+    background-color: var(--primary);
 }
 
 .user-avatar {
